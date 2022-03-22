@@ -21,6 +21,19 @@ It features a wide range **(over 5000!)** of elegant and consistent icons that a
 <img src='https://raw.githubusercontent.com/Donnnno/Arcticons/main/github/phonescreenshotsdark.jpg'>
 <img src='https://raw.githubusercontent.com/Donnnno/Arcticons/main/github/phonescreenshotslight.jpg'>
 
+## Desktop Icon Theme
+
+Though this icon pack is primarily focused on mobile apps, it is also possible to generate a [freedesktop-compliant icon theme](https://specifications.freedesktop.org/icon-theme-spec/icon-theme-spec-latest.html) for use with compatible desktop environments such as [KDE Plasma](https://kde.org/plasma-desktop/) and [GNOME](https://www.gnome.org/).
+
+You can generate the theme, like so:
+
+```sh
+cd freedesktop-theme
+./generate.sh
+```
+
+The theme can also be customized and extended. Read `generate.sh` for details.
+
 ## Donate
 
 Providing a free icon-pack for everyone can cost a lot of time and effort. So if you like our work, consider donating!﻿
