@@ -33,4 +33,6 @@ bundletool.jar
 .keystore/arcticonskeystore.jks
 *.eml
 
-/freedesktop-theme/arcticons
+/freedesktop-theme/arcticons/**
+!/freedesktop-theme/arcticons/index.theme
+/freedesktop-theme/arcticons.tar.gz
