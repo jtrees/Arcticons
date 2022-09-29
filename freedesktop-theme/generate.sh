@@ -30,6 +30,9 @@
 
 set -euo pipefail
 
+theme_dir="$(cd $(dirname "${BASH_SOURCE[0]}") && pwd)"
+repo_dir="$(cd "$theme_dir/.." && pwd)"
+
 style=${1:-white}
 line_weight=${2:-1.0}
 
@@ -41,12 +44,12 @@ for size in $sizes; do
   factor=$(awk "BEGIN { print 48 / $size }")
   dest_root="./arcticons/${size}x${size}"
 
-  for line in $(cat mapping.txt); do
+  for line in $(cat "$theme_dir/mapping.txt"); do
     src=$(echo "$line" | cut -d, -f1)
     dest=$(echo "$line" | cut -d, -f2)
 
     mkdir -p "$dest_root/$(dirname "$dest")"
-    cp -v "../icons/$style/$src.svg" "$dest_root/$dest.svg"
+    cp -v "$repo_dir/icons/$style/$src.svg" "$dest_root/$dest.svg"
 
     grep -v 'stroke-width' "$dest_root/$dest.svg" > /dev/null && sed -i 's/\(stroke:[^;]\+\)/\1;stroke-width:1px/g' "$dest_root/$dest.svg"
     awk -i inplace -F 'stroke-width:|px' "{ print \$1 \"stroke-width:\" (\$2 * $line_weight * $factor) \"px\" \$3; }" "$dest_root/$dest.svg"
